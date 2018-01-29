@@ -1,5 +1,5 @@
 .app-container {
-    width: 60%;
+    width: 80%;
 }
 .task-buttons button {
  border: 0;
@@ -12,7 +12,7 @@
 
 .task-buttons button:hover {
     color: skyblue;
-   }
+}
 
 
 li {
@@ -50,15 +50,50 @@ a.filter-current {
     outline: none;
 }
 .task-list {
+    list-style-type: none;
     margin: 0;
     padding:10px;
     background-color: #ecf0f1;
 }
 .task-list li {
-    margin: 15px;
+    margin: 5px;
     border-bottom: 1px dashed black;
+    padding-bottom: 10px;
 }
 
 .task-list li:hover {
     border: none;
+}
+
+.task-body {
+
+    position: relative;
+    top: -10px;
+    display: inline-block;
+    font-size: 1.3em;
+    margin-top: 10px;
+}
+
+.vote{
+    position: relative;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    cursor:pointer;
+    width: 40px;
+    text-align: center;
+    font-size: 1.3em;
+}
+  
+.vote-up{
+    color: greenyellow;
+}
+.vote-down{
+    color: red;
+}
+
+.vote-count-total {
+    position: absolute;
+    left: 15px;
+    top: 19px;
 }

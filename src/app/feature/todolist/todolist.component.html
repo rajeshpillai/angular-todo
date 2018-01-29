@@ -1,21 +1,26 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div class="app-container" >
-    <h2>Todo</h2>
-    <form>
-      <input name="newTodo" type="text" #newTodo />  
-      <button class="button-add" (click)="addTodo(newTodo)">&#x2795;</button>
-    </form> 
+  <h2>Todo</h2>
+  <form>
+    <input name="newTodo" type="text" #newTodo />  
+    <button class="button-add" (click)="addTodo(newTodo)">&#x2795;</button>
+  </form> 
   
-    <div class="filter-container" (click)="onFilterChange($event)">
-      <a [class.filter-current]="filterAction=='all'" name="all" href="#">ALL</a>
-      <a [class.filter-current]="filterAction=='completed'" name="completed" href="#">COMPLETED</a>
-      <a [class.filter-current]="filterAction=='bookmarked'" name="bookmarked" href="#">BOOKMARKED</a>
-    </div>
-    <ul class="task-list">
-      <div *ngIf="filteredTodos.length===0" >Nothing here. Be awesome and create some todos :)</div>
-      <li
-        *ngFor="let todo of filteredTodos">
-          <input *ngIf="todo.edit" #dirtyTodo 
+  <div class="filter-container" (click)="onFilterChange($event)">
+    <a [class.filter-current]="filterAction=='all'" name="all" href="#">ALL</a>
+    <a [class.filter-current]="filterAction=='completed'" name="completed" href="#">COMPLETED</a>
+    <a [class.filter-current]="filterAction=='bookmarked'" name="bookmarked" href="#">BOOKMARKED</a>
+  </div>
+  <ul class="task-list">
+    <div *ngIf="filteredTodos.length===0" >Nothing here. Be awesome and create some todos :)</div>
+    <li *ngFor="let todo of filteredTodos">
+      <div class="vote">
+          <div class="vote-up">&#x23F6;</div>
+          <span class="vote-count-total">{{todo.votes}}</span>
+          <div class="vote-down">&#x23F7;</div>
+      </div>
+      <div class="task-body">
+        <input *ngIf="todo.edit" #dirtyTodo 
             (keyup) ="editTodo($event, todo.id, dirtyTodo.value)" 
             value={{todo.title}} />
           <span  *ngIf="!todo.edit"
@@ -31,6 +36,7 @@
             </button>
             <button (click)="deleteTodo(todo.id)">🗑</button>
         </span>
+      </div>
       </li>
     </ul>
   </div>
