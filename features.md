@@ -1,9 +1,10 @@
 *InProgress
 ===============
-Add routes
+Add Validation on form submit
 
 Todo
 ==========
+Add routes
 Refactor to model
 
 

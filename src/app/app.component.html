@@ -1,8 +1,9 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div >
+<div class="app-container" >
   <h2>Todo</h2>
   <form>
-    <input name="newTodo" type="text" #newTodo />  <button (click)="addTodo(newTodo)">SUBMIT</button>
+    <input name="newTodo" type="text" #newTodo />  
+    <button class="button-add" (click)="addTodo(newTodo)">&#x271A;</button>
   </form> 
 
   <div class="filter-container" (click)="onFilterChange($event)">
@@ -10,7 +11,7 @@
     <a [class.filter-current]="filterAction=='completed'" name="completed" href="#">COMPLETED</a>
     <a [class.filter-current]="filterAction=='bookmarked'" name="bookmarked" href="#">BOOKMARKED</a>
   </div>
-  <ul>
+  <ul class="task-list">
     <li
       *ngFor="let todo of filteredTodos">
         <input *ngIf="todo.edit" #dirtyTodo 
@@ -21,7 +22,7 @@
          (click)="toggleCompleted(todo.id)">
           {{todo.title}}
         </span>
-      <span>
+      <span class="task-buttons">
           <button (click)="toggleEdit(todo.id)">&#x270D;</button>
           <button (click)="deleteTodo(todo.id)">&#x2716;</button>
           <button (click)="toggleBookmark(todo.id)">
