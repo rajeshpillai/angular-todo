@@ -1,0 +1,64 @@
+.app-container {
+    width: 60%;
+}
+.task-buttons button {
+ border: 0;
+ background: none;
+ box-shadow: none;
+ border-radius: 0px;
+ font-size: 1.5em;
+ outline: none;
+}
+
+.task-buttons button:hover {
+    color: skyblue;
+   }
+
+
+li {
+    cursor: pointer;
+}
+
+.completed {
+    text-decoration-line: line-through;
+}
+
+.bookmarked {
+    color: red;
+}
+
+.filter-container {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #f1c40f;
+}
+
+.filter-container a {
+    text-decoration-line: none;
+}
+
+a.filter-current {
+    text-decoration: underline;
+    color: red;
+}
+
+.button-add {
+    border-radius: 50%;
+    background: none;
+    box-shadow: none;
+    background-color: #3498db;
+    outline: none;
+}
+.task-list {
+    margin: 0;
+    padding:10px;
+    background-color: #ecf0f1;
+}
+.task-list li {
+    margin: 15px;
+    border-bottom: 1px dashed black;
+}
+
+.task-list li:hover {
+    border: none;
+}
