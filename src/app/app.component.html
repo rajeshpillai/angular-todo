@@ -12,6 +12,7 @@
     <a [class.filter-current]="filterAction=='bookmarked'" name="bookmarked" href="#">BOOKMARKED</a>
   </div>
   <ul class="task-list">
+    <div *ngIf="filteredTodos.length===0" >Nothing here. Be awesome and create some todos :)</div>
     <li
       *ngFor="let todo of filteredTodos">
         <input *ngIf="todo.edit" #dirtyTodo 
