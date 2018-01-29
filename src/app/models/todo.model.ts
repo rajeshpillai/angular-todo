@@ -7,6 +7,7 @@ export class Todo {
     votes: number;
     upvotes: number;
     downvotes: number;
+    createdOn: Date;
 
     constructor (todo) {
         this.title = todo.title;
@@ -17,5 +18,6 @@ export class Todo {
         this.votes = todo.votes ||  0;
         this.upvotes = todo.upvotes || 0;
         this.downvotes =  todo.downvotes || 0;
+        this.createdOn = new Date();
     }
 }

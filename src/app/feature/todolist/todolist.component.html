@@ -36,6 +36,9 @@
             </button>
             <button (click)="deleteTodo(todo.id)">🗑</button>
         </span>
+        <div class="task-footer">
+          created on {{todo.createdOn  | date:'longDate'}}
+        </div>
       </div>
       </li>
     </ul>

@@ -88,6 +88,11 @@ a.filter-current {
     margin-top: 10px;
 }
 
+.task-footer {
+    margin-top: 10px;
+    font-size: 0.7em;
+}
+
 .vote{
     position: relative;
     margin: 0;
