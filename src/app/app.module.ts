@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { AboutComponent } from './feature/about/about.component';
 import { TodolistComponent } from './feature/todolist/todolist.component';
+import { EllipsisPipe } from './pipes/ellipsis.pipe';
 
 const appRoutes: Routes = [
   { path: '', component: TodolistComponent },
@@ -14,7 +15,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     AboutComponent,
-    TodolistComponent
+    TodolistComponent,
+    EllipsisPipe,
   ],
   imports: [
     BrowserModule,

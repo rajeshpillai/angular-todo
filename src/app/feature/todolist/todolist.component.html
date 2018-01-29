@@ -24,9 +24,10 @@
             (keyup) ="editTodo($event, todo.id, dirtyTodo.value)" 
             value={{todo.title}} />
           <span  *ngIf="!todo.edit"
+           title = {{todo.title}}
            [class.completed]="todo.completed"
            (click)="toggleCompleted(todo.id)">
-            {{todo.title}}
+            {{todo.title | ellipsis:25}}
           </span>
         <span class="task-buttons">
             <button (click)="toggleEdit(todo.id)">&#x270D;</button>
