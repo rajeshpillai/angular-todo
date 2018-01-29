@@ -8,7 +8,9 @@
   <ul>
     <li
       *ngFor="let todo of todos">
-        <input *ngIf="todo.edit" value={{todo.title}} />
+        <input *ngIf="todo.edit" #dirtyTodo 
+          (keyup) ="editTodo($event, todo.id, dirtyTodo.value)" 
+          value={{todo.title}} />
         <span  *ngIf="!todo.edit">{{todo.title}}</span>
       <span>
           <button (click)="toggleEdit(todo.id)">&#x270D;</button>

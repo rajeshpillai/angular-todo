@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { dirtyParentQueries } from '@angular/core/src/view/query';
 
 @Component({
   selector: 'app-root',
@@ -35,11 +36,30 @@ export class AppComponent {
   }
 
   toggleEdit(id) {
-    var todoEdit = this.todos.find((todo) => {
-      return todo.id == id;
-    });
+    var todoEdit =  this._findTodo(id);
     todoEdit.edit = !todoEdit.edit;
     this.log ("edit: ", todoEdit);
+  }
+
+  _findTodo(id) {
+    var found = this.todos.find((todo) => {
+      return todo.id == id;
+    });
+    return found;
+  }
+
+  editTodo(event, id, dirtyTodo) {
+    // if cancelled
+    if (event.which === 27) {
+      this.toggleEdit(id);
+      return;
+    }
+    if (event.which === 13) {
+      var found = this._findTodo(id);
+      found.title = dirtyTodo;
+      this.toggleEdit(id);
+    }
+
   }
 
   log (...args) {
