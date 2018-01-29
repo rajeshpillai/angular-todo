@@ -15,9 +15,9 @@
     <div *ngIf="filteredTodos.length===0" >Nothing here. Be awesome and create some todos :)</div>
     <li *ngFor="let todo of filteredTodos">
       <div class="vote">
-          <div class="vote-up">&#x23F6;</div>
+          <div (click)="upVote(todo.id)" class="vote-up">&#x23F6;</div>
           <span class="vote-count-total">{{todo.votes}}</span>
-          <div class="vote-down">&#x23F7;</div>
+          <div (click)="downVote(todo.id)" class="vote-down">&#x23F7;</div>
       </div>
       <div class="task-body">
         <input *ngIf="todo.edit" #dirtyTodo 

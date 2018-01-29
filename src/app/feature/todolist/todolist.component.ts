@@ -119,6 +119,18 @@ export class TodolistComponent {
           break;
       }
     }
+
+    upVote(todoId) {
+      var found = this._findTodo(todoId);
+      found.upvotes++;
+      found.votes++;
+    }
+
+    downVote(todoId) {
+      var found = this._findTodo(todoId);
+      found.downvotes++;
+      found.votes--;
+    }
   
     log (...args) {
       for(var i = 0; i < args.length; i++) {

@@ -83,10 +83,11 @@ a.filter-current {
     width: 40px;
     text-align: center;
     font-size: 1.3em;
+    user-select: none;
 }
   
 .vote-up{
-    color: greenyellow;
+    color: green;
 }
 .vote-down{
     color: red;
