@@ -1,7 +1,7 @@
-
 <nav>
-    <a routerLink="/" routerLinkActive="active">home</a>
-    <a routerLink="/about" routerLinkActive="active">about</a>
-  </nav>
+  <a routerLink="/" routerLinkActive="active"  [routerLinkActiveOptions]="{exact: true}">home</a>
+  <a routerLink="/about" routerLinkActive="active">about</a>
+</nav>
+
 <router-outlet></router-outlet>
 

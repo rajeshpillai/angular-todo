@@ -1,0 +1,16 @@
+nav {
+    width: 100%;
+    padding: 10px;
+    background: #34495e;
+}
+
+nav a {
+    color: #ecf0f1;
+    padding: 10px;
+    text-decoration-line: none;
+    background-color: none;
+}
+
+nav a.active {
+    background-color: yellow;
+}
