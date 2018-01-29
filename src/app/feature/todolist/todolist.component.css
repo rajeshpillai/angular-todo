@@ -1,5 +1,6 @@
 .app-container {
     width: 80%;
+    font-family: Arial,"Helvetica Neue",Helvetica,sans-serif;
 }
 .task-buttons button {
  border: 0;
@@ -19,6 +20,13 @@ li {
     cursor: pointer;
 }
 
+.todo-form {
+    width: 100%;
+}
+
+.todo-form input {
+    width: 90%;
+}
 .completed {
     text-decoration-line: line-through;
 }
@@ -36,11 +44,12 @@ li {
 .filter-container a {
     text-decoration-line: none;
     padding: 5px;
+    color: #ecf0f1;
 }
 
 a.filter-current {
     text-decoration: underline;
-    color: red;
+    color: red !important;
     background-color: white;
 }
 
