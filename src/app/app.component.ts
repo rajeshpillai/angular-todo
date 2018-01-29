@@ -41,6 +41,7 @@ export class AppComponent {
     this.changeFilter(this.filterAction);
 
     this.log(this.todos);
+    newTodo.value = "";
     return false;
   }
 
