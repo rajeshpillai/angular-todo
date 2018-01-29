@@ -18,6 +18,7 @@
 
 li {
     cursor: pointer;
+    overflow-wrap: break-word;
 }
 
 .todo-form {
@@ -83,7 +84,7 @@ a.filter-current {
     position: relative;
     top: -10px;
     display: inline-block;
-    font-size: 1.3em;
+    font-size: 1em;
     margin-top: 10px;
 }
 
