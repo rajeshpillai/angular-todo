@@ -2,13 +2,14 @@
 <div >
   <h2>Todo</h2>
   <form>
-    <input name="todo" type="text" #newTodo />  <button (click)="addTodo(newTodo)">SUBMIT</button>
+    <input name="newTodo" type="text" #newTodo />  <button (click)="addTodo(newTodo)">SUBMIT</button>
   </form> 
 
   <ul>
     <li
       *ngFor="let todo of todos">
-      {{todo.title}}
+        <input *ngIf="todo.edit" value={{todo.title}} />
+        <span  *ngIf="!todo.edit">{{todo.title}}</span>
       <span>
           <button (click)="toggleEdit(todo.id)">&#x270D;</button>
           <button (click)="deleteTodo(todo.id)">&#x2716;</button>
