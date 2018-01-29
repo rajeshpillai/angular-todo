@@ -14,6 +14,8 @@ export class Todo {
         this.completed = todo.completed || false;
         this.edit = todo.edit || false;
         this.bookmarked = todo.bookmarked || false;
-        this.votes = this.upvotes = this.downvotes = 0;
+        this.votes = todo.votes ||  0;
+        this.upvotes = todo.upvotes || 0;
+        this.downvotes =  todo.downvotes || 0;
     }
 }

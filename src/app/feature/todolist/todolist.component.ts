@@ -30,13 +30,13 @@ export class TodolistComponent {
         alert("Hmm..something is missing :(.  Please enter some task.");
         return;
       }
-      var todo = {
+      var todo = new Todo ({
         id: this.todos.length + 1,
         title: newTodo.value,
         completed: false,
         edit: false,
         bookmarked: false
-      }
+      });
       this.todos.push(todo);
   
       this.changeFilter(this.filterAction);
