@@ -14,3 +14,5 @@ CRUD todo
 Mark todo as completed
 Bookmark todo
 Filter todos
+Custom Elipsis pipe to truncate long text
+
