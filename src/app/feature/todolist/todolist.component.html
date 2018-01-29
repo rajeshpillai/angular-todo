@@ -46,8 +46,8 @@
     </ul>
   </div>
 
-  <app-modal [(visible)]="isModal">
-      {{todoModal.title}}
+  <app-modal [(visible)]="isModal" >
+      {{todoModal && todoModal.title}}
       <button (click)="isModal = !isModal" class="btn">Close</button>
   </app-modal>
   
