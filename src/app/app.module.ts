@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { AboutComponent } from './feature/about/about.component';
 import { TodolistComponent } from './feature/todolist/todolist.component';
 import { EllipsisPipe } from './pipes/ellipsis.pipe';
+import { ModalComponent } from './shared/modal/modal.component';
 
 const appRoutes: Routes = [
   { path: '', component: TodolistComponent },
@@ -17,6 +18,7 @@ const appRoutes: Routes = [
     AboutComponent,
     TodolistComponent,
     EllipsisPipe,
+    ModalComponent,
   ],
   imports: [
     BrowserModule,

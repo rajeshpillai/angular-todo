@@ -21,6 +21,9 @@ export class TodolistComponent {
     filteredTodos = [];
   
     filterAction = "all";
+
+    isModal = false;
+    todoModal = null;
   
   
     constructor() {
@@ -132,6 +135,14 @@ export class TodolistComponent {
       var found = this._findTodo(todoId);
       found.downvotes++;
       found.votes--;
+    }
+
+    showModal(todoId) {
+      var found = this._findTodo(todoId);
+
+      this.todoModal = found;
+
+      this.isModal = true;
     }
   
     log (...args) {

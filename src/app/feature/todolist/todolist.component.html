@@ -36,6 +36,7 @@
               <span class="bookmarked" *ngIf="todo.bookmarked">&#x2605;</span>
             </button>
             <button (click)="deleteTodo(todo.id)">🗑</button>
+            <button (click)="showModal(todo.id)">show</button>
         </span>
         <div class="task-footer">
           created on {{todo.createdOn  | date:'longDate'}}
@@ -44,3 +45,9 @@
       </li>
     </ul>
   </div>
+
+  <app-modal [(visible)]="isModal">
+      {{todoModal.title}}
+      <button (click)="isModal = !isModal" class="btn">Close</button>
+  </app-modal>
+  
