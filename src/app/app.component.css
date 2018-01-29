@@ -6,7 +6,14 @@
  background: none;
  box-shadow: none;
  border-radius: 0px;
+ font-size: 1.5em;
+ outline: none;
 }
+
+.task-buttons button:hover {
+    color: skyblue;
+   }
+
 
 li {
     cursor: pointer;
@@ -22,7 +29,7 @@ li {
 
 .filter-container {
     margin-top: 10px;
-    padding: 5px;
+    padding: 10px;
     background-color: #f1c40f;
 }
 
@@ -48,5 +55,5 @@ a.filter-current {
     background-color: #ecf0f1;
 }
 .task-list li {
-    margin-left: 15px;
+    margin: 15px;
 }

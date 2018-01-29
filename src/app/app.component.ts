@@ -25,6 +25,10 @@ export class AppComponent {
   }
 
   addTodo(newTodo: HTMLInputElement) {
+    if (newTodo.value.trim() === "") {
+      alert("Hmm..something is missing :(.  Please enter some task.");
+      return;
+    }
     var todo = {
       id: this.todos.length + 1,
       title: newTodo.value,
