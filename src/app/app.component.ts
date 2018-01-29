@@ -15,6 +15,15 @@ export class AppComponent {
     {id: 3, title: "Learn basic HapiJS", completed: false, edit: false, bookmarked: false}
   ];
 
+  filteredTodos = [];
+
+  filterAction = "all";
+
+
+  constructor() {
+    this.filteredTodos = [...this.todos];
+  }
+
   addTodo(newTodo: HTMLInputElement) {
     var todo = {
       id: this.todos.length + 1,
@@ -48,6 +57,12 @@ export class AppComponent {
     this.log ("bookmark: ", found);
   }
 
+  toggleCompleted(id) {
+    var found =  this._findTodo(id);
+    found.completed = !found.completed;
+    this.log ("completed: ", found);
+  }
+
   _findTodo(id) {
     var found = this.todos.find((todo) => {
       return todo.id == id;
@@ -67,6 +82,27 @@ export class AppComponent {
       this.toggleEdit(id);
     }
 
+  }
+
+  onFilterChange(event) {
+    var action = event.target.name.toLowerCase();
+    this.filterAction = action;
+
+    switch (action) {
+      case "all": 
+        this.filteredTodos =[...this.todos];
+        break;
+      case "completed":
+        this.filteredTodos = this.todos.filter((todo) => {
+           return todo.completed;
+        });
+        break;
+      case "bookmarked":
+        this.filteredTodos = this.todos.filter((todo) => {
+          return todo.bookmarked;
+       });
+       break;
+    }
   }
 
   log (...args) {

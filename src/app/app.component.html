@@ -5,19 +5,28 @@
     <input name="newTodo" type="text" #newTodo />  <button (click)="addTodo(newTodo)">SUBMIT</button>
   </form> 
 
+  <div class="filter-container" (click)="onFilterChange($event)">
+    <a name="all" href="#">ALL</a>
+    <a name="completed" href="#">COMPLETED</a>
+    <a name="bookmarked" href="#">BOOKMARKED</a>
+  </div>
   <ul>
     <li
-      *ngFor="let todo of todos">
+      *ngFor="let todo of filteredTodos">
         <input *ngIf="todo.edit" #dirtyTodo 
           (keyup) ="editTodo($event, todo.id, dirtyTodo.value)" 
           value={{todo.title}} />
-        <span  *ngIf="!todo.edit">{{todo.title}}</span>
+        <span  *ngIf="!todo.edit"
+         [class.completed]="todo.completed"
+         (click)="toggleCompleted(todo.id)">
+          {{todo.title}}
+        </span>
       <span>
           <button (click)="toggleEdit(todo.id)">&#x270D;</button>
           <button (click)="deleteTodo(todo.id)">&#x2716;</button>
           <button (click)="toggleBookmark(todo.id)">
             <span *ngIf="!todo.bookmarked">&#x2606;</span>
-            <span *ngIf="todo.bookmarked">&#x2605;</span>
+            <span class="bookmarked" *ngIf="todo.bookmarked">&#x2605;</span>
           </button>
       </span>
     </li>

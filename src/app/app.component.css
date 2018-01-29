@@ -4,3 +4,28 @@ button  {
  box-shadow: none;
  border-radius: 0px;
 }
+
+li {
+    cursor: pointer;
+}
+
+.completed {
+    text-decoration-line: line-through;
+}
+
+.bookmarked {
+    color: red;
+}
+
+.filter-container {
+    margin-top: 10px;
+    padding: 5px;
+}
+
+.filter-container a {
+    text-decoration-line: none;
+}
+
+.filter-current {
+    text-decoration-line: solid;
+}
