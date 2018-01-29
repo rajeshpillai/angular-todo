@@ -8,10 +8,15 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Angular TODO App';
 
-  todos = [];
+  todos = [
+    {id: 1, title: "Learn Angular", completed: false},
+    {id: 2, title: "Learn fundamental React", completed: true},
+    {id: 3, title: "Lear basic HapiJS", completed: false}
+  ];
 
   addTodo(newTodo: HTMLInputElement) {
     var todo = {
+      id: this.todos.length + 1,
       title: newTodo.value,
       completed: false
     }
