@@ -15,7 +15,10 @@
       <span>
           <button (click)="toggleEdit(todo.id)">&#x270D;</button>
           <button (click)="deleteTodo(todo.id)">&#x2716;</button>
-          <button>&#x2606;</button>
+          <button (click)="toggleBookmark(todo.id)">
+            <span *ngIf="!todo.bookmarked">&#x2606;</span>
+            <span *ngIf="todo.bookmarked">&#x2605;</span>
+          </button>
       </span>
     </li>
   </ul>

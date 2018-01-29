@@ -10,9 +10,9 @@ export class AppComponent {
   title = 'Angular TODO App';
 
   todos = [
-    {id: 1, title: "Learn Angular", completed: false, edit: false},
-    {id: 2, title: "Learn fundamental React", completed: true, edit: false},
-    {id: 3, title: "Lear basic HapiJS", completed: false, edit: false}
+    {id: 1, title: "Learn Angular", completed: false, edit: false, bookmarked: false},
+    {id: 2, title: "Learn fundamental React", completed: true, edit: false, bookmarked: false},
+    {id: 3, title: "Learn basic HapiJS", completed: false, edit: false, bookmarked: false}
   ];
 
   addTodo(newTodo: HTMLInputElement) {
@@ -20,7 +20,8 @@ export class AppComponent {
       id: this.todos.length + 1,
       title: newTodo.value,
       completed: false,
-      edit: false
+      edit: false,
+      bookmarked: false
     }
     this.todos.push(todo);
     this.log(this.todos);
@@ -39,6 +40,12 @@ export class AppComponent {
     var todoEdit =  this._findTodo(id);
     todoEdit.edit = !todoEdit.edit;
     this.log ("edit: ", todoEdit);
+  }
+
+  toggleBookmark(id) {
+    var found =  this._findTodo(id);
+    found.bookmarked = !found.bookmarked;
+    this.log ("bookmark: ", found);
   }
 
   _findTodo(id) {
