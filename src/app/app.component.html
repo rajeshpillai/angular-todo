@@ -1,6 +1,15 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
+<div >
   <h2>Todo</h2>
-  <input type="text" />  <button>SUBMIT</button>
+  <form>
+    <input name="todo" type="text" #newTodo />  <button (click)="addTodo(newTodo)">SUBMIT</button>
+  </form> 
+
+  <ul>
+    <li
+      *ngFor="let todo of todos">
+      {{todo.title}}
+    </li>
+  </ul>
 </div>
 
