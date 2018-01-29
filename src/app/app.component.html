@@ -6,9 +6,9 @@
   </form> 
 
   <div class="filter-container" (click)="onFilterChange($event)">
-    <a name="all" href="#">ALL</a>
-    <a name="completed" href="#">COMPLETED</a>
-    <a name="bookmarked" href="#">BOOKMARKED</a>
+    <a [class.filter-current]="filterAction=='all'" name="all" href="#">ALL</a>
+    <a [class.filter-current]="filterAction=='completed'" name="completed" href="#">COMPLETED</a>
+    <a [class.filter-current]="filterAction=='bookmarked'" name="bookmarked" href="#">BOOKMARKED</a>
   </div>
   <ul>
     <li

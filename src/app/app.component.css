@@ -26,6 +26,7 @@ li {
     text-decoration-line: none;
 }
 
-.filter-current {
-    text-decoration-line: solid;
+a.filter-current {
+    text-decoration: underline;
+    color: red;
 }
