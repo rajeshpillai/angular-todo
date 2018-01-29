@@ -33,6 +33,9 @@ export class AppComponent {
       bookmarked: false
     }
     this.todos.push(todo);
+
+    this.changeFilter(this.filterAction);
+
     this.log(this.todos);
     return false;
   }
@@ -43,6 +46,8 @@ export class AppComponent {
     });
 
     this.todos = newTodos;
+
+    this.changeFilter(this.filterAction);
   }
 
   toggleEdit(id) {
@@ -76,7 +81,7 @@ export class AppComponent {
       this.toggleEdit(id);
       return;
     }
-    if (event.which === 13) {
+    if (event.which === 13) { // enter key
       var found = this._findTodo(id);
       found.title = dirtyTodo;
       this.toggleEdit(id);
@@ -87,7 +92,10 @@ export class AppComponent {
   onFilterChange(event) {
     var action = event.target.name.toLowerCase();
     this.filterAction = action;
+    this.changeFilter(action);
+  }
 
+  changeFilter(action) {
     switch (action) {
       case "all": 
         this.filteredTodos =[...this.todos];
@@ -100,8 +108,8 @@ export class AppComponent {
       case "bookmarked":
         this.filteredTodos = this.todos.filter((todo) => {
           return todo.bookmarked;
-       });
-       break;
+        });
+        break;
     }
   }
 
