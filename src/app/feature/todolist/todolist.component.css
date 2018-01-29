@@ -7,8 +7,11 @@
  background: none;
  box-shadow: none;
  border-radius: 0px;
- font-size: 1.5em;
  outline: none;
+ border: 1px solid skyblue;
+ height: 25px;
+ width: 25px;
+ text-align: center;
 }
 
 .task-buttons button:hover {
