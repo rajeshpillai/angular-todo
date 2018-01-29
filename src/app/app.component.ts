@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { dirtyParentQueries } from '@angular/core/src/view/query';
+import {Todo} from './models/todo.model';
 
 @Component({
   selector: 'app-root',
@@ -10,9 +11,9 @@ export class AppComponent {
   title = 'Angular TODO App';
 
   todos = [
-    {id: 1, title: "Learn Angular", completed: false, edit: false, bookmarked: false},
-    {id: 2, title: "Learn fundamental React", completed: true, edit: false, bookmarked: false},
-    {id: 3, title: "Learn basic HapiJS", completed: false, edit: false, bookmarked: false}
+    new Todo({id: 1, title: "Learn Angular"}),
+    new Todo({id: 2, title: "Learn fundamental React", completed: true, edit: false, bookmarked: false}),
+    new Todo({id: 3, title: "Learn basic HapiJS", completed: false, edit: false, bookmarked: false})
   ];
 
   filteredTodos = [];
@@ -95,6 +96,7 @@ export class AppComponent {
   }
 
   onFilterChange(event) {
+    if (!event.target.name) return;
     var action = event.target.name.toLowerCase();
     this.filterAction = action;
     this.changeFilter(action);
