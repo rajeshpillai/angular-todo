@@ -43,11 +43,13 @@ a.filter-current {
 }
 
 .button-add {
-    border-radius: 50%;
-    background: none;
-    box-shadow: none;
     background-color: #3498db;
     outline: none;
+    text-decoration: none;
+    border: 0;
+    background: none;
+    box-shadow: none;
+    border-radius: 0px;
 }
 .task-list {
     list-style-type: none;
