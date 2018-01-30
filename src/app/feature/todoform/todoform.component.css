@@ -1,0 +1,17 @@
+.todo-form {
+    width: 100%;
+}
+
+.todo-form input {
+    width: 90%;
+}
+
+.button-add {
+    background-color: #3498db;
+    outline: none;
+    text-decoration: none;
+    border: 0;
+    background: none;
+    box-shadow: none;
+    border-radius: 0px;
+}
