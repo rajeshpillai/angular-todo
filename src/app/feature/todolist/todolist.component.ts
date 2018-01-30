@@ -24,22 +24,19 @@ export class TodolistComponent {
 
     isModal = false;
     todoModal = null;
-  
+    droppedTask = null;
   
     constructor() {
       this.filteredTodos = [...this.todos];
     }
 
 
-   onNewTodo(newTodo) {
-     this.addTodo(newTodo);
-   }    
+    onNewTodo(newTodo) {
+      this.addTodo(newTodo);
+    }    
   
     addTodo(newTodo: string) {
-      if (newTodo.trim() === "") {
-        alert("Hmm..something is missing :(.  Please enter some task.");
-        return false;
-      }
+      
       var todo = new Todo ({
         id: this.todos.length + 1,
         title: newTodo,
@@ -52,7 +49,6 @@ export class TodolistComponent {
       this.changeFilter(this.filterAction);
   
       this.log(this.todos);
-      newTodo = "";
       return false;
     }
   
@@ -149,6 +145,23 @@ export class TodolistComponent {
 
       this.isModal = true;
     }
+
+    onDragover(event) {
+      event.preventDefault();  // This is important for drop to work.
+    }
+
+    onDragStart(event, id) {
+      event.dataTransfer.setData("id", id);
+      console.log("dragstart: ", id);
+    }
+
+    onDrop(event) {
+      var id = event.dataTransfer.getData("id");
+      console.log(`DROPPED task ${id}`);
+      this.droppedTask = this._findTodo(id);
+
+    }
+  
   
     log (...args) {
       for(var i = 0; i < args.length; i++) {

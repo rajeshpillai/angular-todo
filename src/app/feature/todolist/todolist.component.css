@@ -103,3 +103,15 @@ a.filter-current {
     left: 15px;
     top: 19px;
 }
+.todo-container {
+    float: left;
+}
+.droppable {
+    position: relative;
+    margin-left:auto;
+    margin-right:0;
+    height: 90vh;
+    width: 150px;
+    background-color: slategray;
+    font-size: 0.6em;
+}
