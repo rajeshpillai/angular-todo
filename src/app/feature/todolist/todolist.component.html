@@ -1,10 +1,9 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div class="app-container" >
   <h2>Todo</h2>
-  <form class="todo-form">
-    <input name="newTodo" type="text" #newTodo placeholder="what do you want to do today?"/>  
-    <button class="button-add" (click)="addTodo(newTodo)">&#x2795;</button>
-  </form> 
+  
+
+  <app-todoform (onNewTodo)='onNewTodo($event)'></app-todoform>
   
   <div class="filter-container" (click)="onFilterChange($event)">
     <a [class.filter-current]="filterAction=='all'" name="all" href="#">ALL</a>

@@ -6,8 +6,8 @@ import {Todo} from '../../models/todo.model';
   templateUrl: './todolist.component.html',
   styleUrls: ['./todolist.component.css']
 })
-export class TodolistComponent {
 
+export class TodolistComponent {
   title = 'Angular TODO App';
   
     todos = [
@@ -29,15 +29,20 @@ export class TodolistComponent {
     constructor() {
       this.filteredTodos = [...this.todos];
     }
+
+
+   onNewTodo(newTodo) {
+     this.addTodo(newTodo);
+   }    
   
-    addTodo(newTodo: HTMLInputElement) {
-      if (newTodo.value.trim() === "") {
+    addTodo(newTodo: string) {
+      if (newTodo.trim() === "") {
         alert("Hmm..something is missing :(.  Please enter some task.");
         return false;
       }
       var todo = new Todo ({
         id: this.todos.length + 1,
-        title: newTodo.value,
+        title: newTodo,
         completed: false,
         edit: false,
         bookmarked: false
@@ -47,7 +52,7 @@ export class TodolistComponent {
       this.changeFilter(this.filterAction);
   
       this.log(this.todos);
-      newTodo.value = "";
+      newTodo = "";
       return false;
     }
   
