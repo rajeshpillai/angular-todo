@@ -1,59 +1,35 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div class="app-container" >
-  <div class="todo-container">
-    <h2>Todo</h2>
-    <app-todoform (onNewTodo)='onNewTodo($event)'></app-todoform>
-    <div class="filter-container" (click)="onFilterChange($event)">
-      <a [class.filter-current]="filterAction=='all'" name="all" href="#">ALL</a>
-      <a [class.filter-current]="filterAction=='completed'" name="completed" href="#">COMPLETED</a>
-      <a [class.filter-current]="filterAction=='bookmarked'" name="bookmarked" href="#">BOOKMARKED</a>
-    </div>
-    <ul class="task-list" 
-        (dragover)="onDragover($event)">
-      <div *ngIf="filteredTodos.length===0" >Nothing here. Be awesome and create some todos :)</div>
-      <li *ngFor="let todo of filteredTodos" draggable="true"
-        (dragstart)="onDragStart($event, todo.id)">
-        <div class="vote">
-            <div (click)="upVote(todo.id)" class="vote-up">&#x23F6;</div>
-            <span class="vote-count-total">{{todo.votes}}</span>
-            <div (click)="downVote(todo.id)" class="vote-down">&#x23F7;</div>
-        </div>
-        <div class="task-body">
-          <input *ngIf="todo.edit" #dirtyTodo 
-              (keyup) ="editTodo($event, todo.id, dirtyTodo.value)" 
-              value={{todo.title}} />
-            <span  *ngIf="!todo.edit"
-            title = {{todo.title}}
-            [class.completed]="todo.completed"
-            (click)="toggleCompleted(todo.id)">
-              {{todo.title | ellipsis:25}}
-            </span>
-          <span class="task-buttons">
-              <button (click)="toggleEdit(todo.id)">&#x270D;</button>
-              <button (click)="toggleBookmark(todo.id)">
-                <span *ngIf="!todo.bookmarked">&#x2606;</span>
-                <span class="bookmarked" *ngIf="todo.bookmarked">&#x2605;</span>
-              </button>
-              <button (click)="deleteTodo(todo.id)">🗑</button>
-              <button (click)="showModal(todo.id)">show</button>
-          </span>
-          <div class="task-footer">
-            created on {{todo.createdOn  | date:'longDate'}}
-          </div>
-        </div>
-        </li>
-      </ul>
-    </div>
-    <div class="droppable"  (dragover)="onDragover($event)" 
-      (drop)="onDrop($event)">
-      drop tasks here  <br>
-      {{droppedTask.title}}
+<ul class="task-list" 
+  (dragover)="onDragover($event)">
+<div *ngIf="todos.length===0" >Nothing here. Be awesome and create some todos :)</div>
+<li *ngFor="let todo of todos" draggable="true"
+  (dragstart)="onDragStart($event, todo.id)">
+  <div class="vote">
+      <div (click)="upVote(todo.id)" class="vote-up">&#x23F6;</div>
+      <span class="vote-count-total">{{todo.votes}}</span>
+      <div (click)="downVote(todo.id)" class="vote-down">&#x23F7;</div>
+  </div>
+  <div class="task-body">
+    <input *ngIf="todo.edit" #dirtyTodo 
+        (keyup) ="editTodo($event, todo.id, dirtyTodo.value)" 
+        value={{todo.title}} />
+      <span  *ngIf="!todo.edit"
+      title = {{todo.title}}
+      [class.completed]="todo.completed"
+      (click)="toggleCompleted(todo.id)">
+        {{todo.title | ellipsis:25}} 
+      </span>
+    <span class="task-buttons">
+        <button (click)="toggleEdit(todo.id)">&#x270D;</button>
+        <button (click)="toggleBookmark(todo.id)">
+          <span *ngIf="!todo.bookmarked">&#x2606;</span>
+          <span class="bookmarked" *ngIf="todo.bookmarked">&#x2605;</span>
+        </button>
+        <button (click)="deleteTodo(todo.id)">🗑</button>
+        <button (click)="showModal(todo.id)">show</button>
+    </span>
+    <div class="task-footer">
+      created on {{todo.createdOn  | date:'longDate'}}
     </div>
   </div>
-  
-
-  <app-modal [(visible)]="isModal" >
-      {{todoModal && todoModal.title}}
-      <button (click)="isModal = !isModal" class="btn">Close</button>
-  </app-modal>
-  
+  </li>
+</ul>

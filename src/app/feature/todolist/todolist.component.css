@@ -1,7 +1,4 @@
-.app-container {
-    width: 80%;
-    font-family: Arial,"Helvetica Neue",Helvetica,sans-serif;
-}
+
 .task-buttons button {
  background: none;
  outline: none;
@@ -10,15 +7,11 @@
  background-color: lightgray;
 }
 
-.task-buttons button:hover {
-}
-
 
 li {
     cursor: pointer;
     overflow-wrap: break-word;
 }
-
 
 .completed {
     text-decoration-line: line-through;
@@ -26,24 +19,6 @@ li {
 
 .bookmarked {
     color: red;
-}
-
-.filter-container {
-    margin-top: 10px;
-    padding: 10px;
-    background-color: #3498db;
-}
-
-.filter-container a {
-    text-decoration-line: none;
-    padding: 5px;
-    color: #ecf0f1;
-}
-
-a.filter-current {
-    text-decoration: underline;
-    color: red !important;
-    background-color: white;
 }
 
 
@@ -105,13 +80,4 @@ a.filter-current {
 }
 .todo-container {
     float: left;
-}
-.droppable {
-    position: relative;
-    margin-left:auto;
-    margin-right:0;
-    height: 90vh;
-    width: 150px;
-    background-color: slategray;
-    font-size: 0.6em;
 }

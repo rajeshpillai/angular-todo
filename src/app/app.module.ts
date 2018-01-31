@@ -7,9 +7,10 @@ import { TodolistComponent } from './feature/todolist/todolist.component';
 import { EllipsisPipe } from './pipes/ellipsis.pipe';
 import { ModalComponent } from './shared/modal/modal.component';
 import { TodoformComponent } from './feature/todoform/todoform.component';
+import { TodoappComponent } from './feature/todoapp/todoapp.component';
 
 const appRoutes: Routes = [
-  { path: '', component: TodolistComponent },
+  { path: '', component: TodoappComponent },
   { path: 'about', component: AboutComponent}
 ];
 
@@ -21,6 +22,7 @@ const appRoutes: Routes = [
     EllipsisPipe,
     ModalComponent,
     TodoformComponent,
+    TodoappComponent,
   ],
   imports: [
     BrowserModule,

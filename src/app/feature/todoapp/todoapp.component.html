@@ -1,0 +1,33 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="app-container" >
+  <div class="todo-container">
+    <h2>Todo</h2>
+    <app-todoform (onNewTodo)='onNewTodo($event)'></app-todoform>
+    <div class="filter-container" (click)="onFilterChange($event)">
+      <a [class.filter-current]="filterAction=='all'" name="all" href="#">ALL</a>
+      <a [class.filter-current]="filterAction=='completed'" name="completed" href="#">COMPLETED</a>
+      <a [class.filter-current]="filterAction=='bookmarked'" name="bookmarked" href="#">BOOKMARKED</a>
+    </div>
+    <app-todolist [todos]="filteredTodos"
+      (onDeleteTodo)="onDeleteTodo($event)"
+      (onToggleEdit)="onToggleEdit($event)"
+      (onToggleBookmark)="onToggleBookmark($event)"
+      (onToggleCompleted)="onToggleCompleted($event)"
+      (onUpVote)="upVote($event)"
+      (onDownVote)="downVote($event)"
+      (onShowModal)="showModal($event)"
+      (onEditTodo)="editTodo($event)"></app-todolist>
+  </div>
+
+    <div class="droppable"  (dragover)="onDragover($event)" 
+      (drop)="onDrop($event)">
+      drop tasks here  <br>
+      {{droppedTask && droppedTask.title}}
+    </div>
+</div>
+  
+<app-modal [(visible)]="isModal" >
+    {{todoModal && todoModal.title}}
+    <button (click)="isModal = !isModal" class="btn">Close</button>
+</app-modal>
+    
