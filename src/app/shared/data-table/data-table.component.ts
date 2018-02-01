@@ -49,7 +49,7 @@ export class DataTableComponent implements OnInit {
           flag = true;
           return;
         }
-      }
+      });
       if (flag) return data;
     });
     console.log("Filtered records: ", filteredList);
