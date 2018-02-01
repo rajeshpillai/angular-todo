@@ -1,11 +1,11 @@
 <nav>
-  <a routerLink="/" routerLinkActive="active"  [routerLinkActiveOptions]="{exact: true}">home</a>
+  <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">home</a>
+  <a routerLink="/filter" routerLinkActive="active">filter</a>
   <a routerLink="/about" routerLinkActive="active">about</a>
-  <a routerLink="/{{!login ? 'login' : 'logout'}}" routerLinkActive="active"> 
+  <a routerLink="/{{!login ? 'login' : 'logout'}}" routerLinkActive="active">
     {{!login ? "login" : "logout"}}
   </a>
 
 </nav>
 
 <router-outlet></router-outlet>
-

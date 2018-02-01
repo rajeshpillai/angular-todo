@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {FormsModule} from "@angular/forms";
+import { FormsModule } from "@angular/forms";
 
 import { AppComponent } from './app.component';
 import { AboutComponent } from './feature/about/about.component';
@@ -11,12 +11,15 @@ import { ModalComponent } from './shared/modal/modal.component';
 import { TodoformComponent } from './feature/todoform/todoform.component';
 import { TodoappComponent } from './feature/todoapp/todoapp.component';
 import { LoginComponent } from './feature/login/login.component';
+import { DataTableComponent } from './shared/data-table/data-table.component';
 
 const appRoutes: Routes = [
   { path: '', component: TodoappComponent },
-  { path: 'about', component: AboutComponent},
-  { path: 'login', component: LoginComponent},
-  { path: 'logout', component: LoginComponent},
+  { path: 'about', component: AboutComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'logout', component: LoginComponent },
+  { path: 'filter', component: DataTableComponent },
+
 ];
 
 @NgModule({
@@ -29,6 +32,7 @@ const appRoutes: Routes = [
     TodoformComponent,
     TodoappComponent,
     LoginComponent,
+    DataTableComponent,
   ],
   imports: [
     BrowserModule,
