@@ -8,6 +8,8 @@
       <a [class.filter-current]="filterAction=='completed'" name="completed" href="#">COMPLETED</a>
       <a [class.filter-current]="filterAction=='bookmarked'" name="bookmarked" href="#">BOOKMARKED</a>
     </div>
+
+    <h3>{{errorMsg}}</h3>
     <app-todolist [todos]="filteredTodos" (onDeleteTodo)="onDeleteTodo($event)" (onToggleEdit)="onToggleEdit($event)" (onToggleBookmark)="onToggleBookmark($event)"
       (onToggleCompleted)="onToggleCompleted($event)" (onUpVote)="upVote($event)" (onDownVote)="downVote($event)" (onShowModal)="showModal($event)"
       (onEditTodo)="editTodo($event)">

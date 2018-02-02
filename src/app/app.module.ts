@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+
 import { FormsModule } from "@angular/forms";
 import { TodoService } from './services/todo.service';
 
@@ -38,6 +40,7 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule, // Automatically registers with providers.
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only

@@ -6,7 +6,7 @@ import { TodoService } from '../../services/todo.service';
   templateUrl: './todoapp.component.html',
   styleUrls: ['./todoapp.component.css']
 })
-export class TodoappComponent {
+export class TodoappComponent implements OnInit{
   title = 'Angular TODO App';
 
     todos = [];
@@ -18,12 +18,20 @@ export class TodoappComponent {
     isModal = false;
     todoModal = null;
     droppedTask = null;
+    errorMsg = null;
 
     constructor(private todoService: TodoService) {
-      this.todos = todoService.getTodos();
-      this.filteredTodos = [...this.todos];
     }
 
+    ngOnInit() {
+      this.todoService.getTodos()
+        .subscribe(data => {
+            this.todos = data
+            this.filteredTodos = [...this.todos];
+        }, error => {
+          this.errorMsg = error
+        });
+    }
 
     onNewTodo(newTodo) {
       this.addTodo(newTodo);
