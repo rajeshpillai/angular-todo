@@ -8,23 +8,23 @@ import {Todo} from '../../models/todo.model';
 })
 export class TodoappComponent {
   title = 'Angular TODO App';
-  
+
     todos = [
       new Todo({id: 1, title: "Learn Angular"}),
-      new Todo({id: 2, title: "Learn fundamental React and master modern webdevelopment by building single page application", 
+      new Todo({id: 2, title: "Learn fundamental React and master modern webdevelopment by building single page application",
         completed: true, edit: false, bookmarked: false
       }),
       new Todo({id: 3, title: "Learn basic HapiJS", completed: false, edit: false, bookmarked: false})
     ];
-  
+
     filteredTodos = [];
-  
+
     filterAction = "all";
 
     isModal = false;
     todoModal = null;
     droppedTask = null;
-  
+
     constructor() {
       this.filteredTodos = [...this.todos];
     }
@@ -32,8 +32,8 @@ export class TodoappComponent {
 
     onNewTodo(newTodo) {
       this.addTodo(newTodo);
-    }    
-  
+    }
+
     addTodo(newTodo: string) {
       var todo = new Todo ({
         id: this.todos.length + 1,
@@ -43,48 +43,50 @@ export class TodoappComponent {
         bookmarked: false
       });
       this.todos.push(todo);
-  
+
       this.changeFilter(this.filterAction);
-  
+
       this.log(this.todos);
       return false;
     }
-  
+
     onDeleteTodo(id) {
       var newTodos = this.todos.filter ((todo) => {
         return todo.id !=id;
       });
-  
+
       this.todos = newTodos;
-  
+
       this.changeFilter(this.filterAction);
     }
-  
+
     onToggleEdit(id) {
       var todoEdit =  this._findTodo(id);
       todoEdit.edit = !todoEdit.edit;
       this.log ("edit: ", todoEdit);
     }
-  
+
     onToggleBookmark(id) {
       var found =  this._findTodo(id);
       found.bookmarked = !found.bookmarked;
+      this.changeFilter(this.filterAction);
       this.log ("bookmark: ", found);
     }
-  
+
     onToggleCompleted(id) {
       var found =  this._findTodo(id);
       found.completed = !found.completed;
+      this.changeFilter(this.filterAction);
       this.log ("completed: ", found);
     }
-  
+
     _findTodo(id) {
       var found = this.todos.find((todo) => {
         return todo.id == id;
       });
       return found;
     }
-  
+
     editTodo(e) {
       // if cancelled
       if (e.event.which === 27) {
@@ -97,17 +99,17 @@ export class TodoappComponent {
         this.onToggleEdit(e.id);
       }
     }
-  
+
     onFilterChange(event) {
       if (!event.target.name) return;
       var action = event.target.name.toLowerCase();
       this.filterAction = action;
       this.changeFilter(action);
     }
-  
+
     changeFilter(action) {
       switch (action) {
-        case "all": 
+        case "all":
           this.filteredTodos =[...this.todos];
           break;
         case "completed":
@@ -155,8 +157,8 @@ export class TodoappComponent {
       console.log(`DROPPED task ${id}`);
       this.droppedTask = this._findTodo(id);
     }
-  
-  
+
+
     log (...args) {
       for(var i = 0; i < args.length; i++) {
        console.log(JSON.stringify(args[i]));
