@@ -1,10 +1,10 @@
 
 .task-buttons button {
- background: none;
- outline: none;
- border: 1px solid skyblue;
- text-align: center;
- background-color: lightgray;
+    background: none;
+    outline: none;
+    border: 1px solid skyblue;
+    text-align: center;
+    background-color: lightgray;
 }
 
 

@@ -1,4 +1,5 @@
-[{"id": 1, "title": "Learn Angular", "completed":false, "edit": false, "bookmarked":true},
-  {"id": 2, "title": "Learn fundamental React","completed": true, "edit": false, "bookmarked": false},
-  {"id": 3, "title": "Learn basic HapiJS", "completed": false, "edit": false, "bookmarked": false}
+[
+  {"id": 1, "title": "Learn Angular", "completed":false, "edit": false, "bookmarked":true, "votes":0, "upvotes":0, "downvotes":0},
+  {"id": 2, "title": "Learn fundamental React","completed": true, "edit": false, "bookmarked": false, "votes":0, "upvotes":0, "downvotes":0},
+  {"id": 3, "title": "Learn basic HapiJS", "completed": false, "edit": false, "bookmarked": false, "votes":0, "upvotes":0, "downvotes":0}
 ]
